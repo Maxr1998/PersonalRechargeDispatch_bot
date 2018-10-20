@@ -2,3 +2,7 @@ main
 rechargedispatchbot
 secrets.go
 config.json
+
+addons/secrets.py
+addons/__pycache__/
+addons/Maxr1998 Userbot.session*
