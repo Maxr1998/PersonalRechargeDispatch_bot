@@ -28,11 +28,9 @@ func main() {
 	// Process updates from the Telegram servers
 	for update := range updates {
 		if post := update.ChannelPost; post != nil {
-			handlePost(bot, config.GetChannel(post.Chat.ID), post.Text)
-			continue
-		}
-		if msg := update.Message; msg != nil {
-			handleMessage(bot, msg)
+			go handlePost(bot, config.GetChannel(post.Chat.ID), post.Text)
+		} else if msg := update.Message; msg != nil {
+			go handleMessage(bot, msg)
 		}
 	}
 }
